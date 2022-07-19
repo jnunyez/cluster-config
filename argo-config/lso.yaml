@@ -7,9 +7,9 @@ spec:
   destination:
     namespace: openshift-storage
     server: 'https://kubernetes.default.svc'
-  project: lso
+  project: default
   source:
-    path: manifests/storage/00-lso
+    path: ../manifests/storage/00-lso
     repoURL: https://github.com/jnunyez/cluster-config
     targetRevision: main
   syncPolicy:
