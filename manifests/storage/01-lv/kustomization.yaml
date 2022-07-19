@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   # presync to add labels
   - 00-job-sa-role.yaml
-  - 01-node-labels-jobs.yaml
+  - 01-node-labels-job.yaml
   # Enable Local Volume Discovery
   - 02-lvd.yaml
   # Local Volume Sets
