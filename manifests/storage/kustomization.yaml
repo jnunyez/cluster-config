@@ -7,4 +7,4 @@ resources:
   # add labels
   - ./01-lv
   # Set Up OpenShift Data Fabric
-  - ./04-odf
+  #- ./04-odf
