@@ -16,7 +16,6 @@ spec:
               - ""
   storageClassName: localblock
   volumeMode: Block
-  fstype: ""
   maxDeviceCount: 1
   deviceInclusionSpec:
     deviceTypes:
