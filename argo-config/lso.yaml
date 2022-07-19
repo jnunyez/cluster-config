@@ -3,13 +3,14 @@ kind: Application
 metadata:
   name: lso-operator
   namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
 spec:
   destination:
-    namespace: openshift-storage
     server: 'https://kubernetes.default.svc'
   project: default
   source:
-    path: ../manifests/storage/00-lso
+    path: manifests/storage/00-lso/
     repoURL: https://github.com/jnunyez/cluster-config
     targetRevision: main
   syncPolicy:
