@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Node
+metadata:
+  name: super1
+  labels:
+    cluster.ocs.openshift.io/openshift-storage: ''
+---
+apiVersion: v1
+kind: Node
+metadata:
+  name: super2
+  labels:
+    cluster.ocs.openshift.io/openshift-storage: ''
+---
+apiVersion: v1
+kind: Node
+metadata:
+  name: super3
+  labels:
+    cluster.ocs.openshift.io/openshift-storage: ''

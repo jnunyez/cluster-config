@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: lso-operator
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: openshift-storage
+    server: 'https://kubernetes.default.svc'
+  project: lso
+  source:
+    path: manifests/storage/00-lso
+    repoURL: https://github.com/jnunyez/cluster-config
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: true

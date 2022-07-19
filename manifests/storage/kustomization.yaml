@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  # Set up OpenShift Local Storage Operator
+  - ./00-lso
+  # add labels
+  - 01-node-labels.yaml
+  # Enable Local Volume Discovery
+  - 02-lvd.yaml
+  # Local Volume Sets
+  - 03-lvs.yaml
+  # Set Up OpenShift Data Fabric
+  - ./04-odf
