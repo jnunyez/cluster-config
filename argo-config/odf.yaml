@@ -7,11 +7,11 @@ metadata:
     argocd.argoproj.io/sync-wave: "3"
 spec:
   destination:
-    name: 
     namespace: openshift-storage
     server: 'https://kubernetes.default.svc'
+  project: default
   source:
-    path: manifests/storage/04-odf
+    path: manifests/storage/02-odf
     repoURL: https://github.com/jnunyez/cluster-config
     targetRevision: main
   syncPolicy:

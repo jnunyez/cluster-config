@@ -30,6 +30,5 @@ spec:
           name: presync-label-storage-node
       dnsPolicy: ClusterFirst
       restartPolicy: OnFailure
-      serviceAccount: cli-job-sa
       serviceAccountName: cli-job-sa
       terminationGracePeriodSeconds: 30

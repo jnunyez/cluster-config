@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - lso.yaml
   - lv.yaml
+  - odf.yaml
