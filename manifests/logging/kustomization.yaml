@@ -1,0 +1,9 @@
+---
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  # Openshift Elastic search
+  - github.com/redhat-cop/gitops-catalog/elasticsearch-operator/overlays/stable?ref=main
+  # Openshift Logging
+  - github.com/redhat-cop/gitops-catalog/openshift-logging/operator/overlays/stable?ref=main
