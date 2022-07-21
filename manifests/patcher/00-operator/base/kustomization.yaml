@@ -4,4 +4,4 @@ kind: Kustomization
 
 resources:
   - 00-ns.yaml
-  - 01-operator.yaml
+  - 01-install.yaml
