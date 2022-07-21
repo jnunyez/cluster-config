@@ -5,3 +5,7 @@ resources:
   - lso.yaml
   - lv.yaml
   - odf.yaml
+  - acm.yaml
+  - gitops.yaml
+  - patcher.yaml
+  - pipelines.yaml
