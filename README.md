@@ -25,6 +25,12 @@ ArgoCD Applications in a determinate  order which is supported by SyncWave annot
 
 ## Dir Structure
 
+* bootstrap: Here we put the items. The base directory contains GitOps controller configuration, whereas overlays contain GitOps controller configurations. There is only one default overlay. The default directory contains kustomization.yaml files with argoCD applications.
+
+* argo-config: Here we include all the argocd applications. 
+
+* manifests: This directory embeds all the YAML files to deploy via the respective ArgoCD application all the specifics customizations necessary to achieve the aimed functionality in the cluster. The core subdir contains specific cusotmizations for the GitOps controller that will be also managed by ArgoCD. Yes, ArgoCD lifecycle is managed by ArgoCD.  
+
 ## Object management in the management cluster
 
 OpenShift objects can be divided into two categories:
@@ -41,6 +47,8 @@ OpenShift objects can be divided into two categories:
 
 * sync-waves, phases, objects
 
+* SkypDryRun: Important when you have a CR that is created in a different sync stage 
+
 ## Patterns
 
 ### DRY
@@ -54,6 +62,5 @@ To implement the app-of-apps pattern in ArgoCD, few solutions exist:
 
 * An Application for each app/overlay. OPTION IMPLEMENTED NOW
 
-* using a Helm Chart with Application defined as a template. 
-
+* using a Helm Chart with Application defined as a template. (This could save a lot of yaml redundancies.)
 
