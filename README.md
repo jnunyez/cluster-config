@@ -5,9 +5,9 @@
 To start the cluster provisioning, follow these steps:
 
 ```console
-oc apply -k bootstrap/overlays/default
+until oc apply -k bootstrap/overlays/default; do sleep 3; done
 ```
-This will first configure your cluster with the RH GitOps controller. These operator will drive the deployment of the other operators, jobs, and cluster customizations:
+This will first configure your cluster with the GitOps controller. The operator will drive the deployment of the other operators, jobs, and cluster customizations:
 
 	* OpenShift GitOps operator
 
