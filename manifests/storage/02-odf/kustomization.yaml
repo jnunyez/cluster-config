@@ -9,7 +9,7 @@ resources:
   - ./02-storage-cluster.yaml
   # set permission to patch storageclass
   - ./03-job-sa-role.yaml
-  # patch using patch operator 
+  # patch using patch operator
   - ./04-patch-default-storage-class.yaml
   # patch using job
-  #- ./05-default-storage-class-job.yaml
+  #- ./04-default-storage-class-job.yaml

@@ -3,6 +3,8 @@ kind: Patch
 metadata:
   name: default-storage-class
   namespace: openshift-storage
+  annotations:
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   serviceAccountRef:
     name: cli-job-sa
