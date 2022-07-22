@@ -4,7 +4,7 @@ metadata:
   name: default-storage-class
   namespace: openshift-storage
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "7"
 spec:
   serviceAccountRef:
     name: cli-job-sa
