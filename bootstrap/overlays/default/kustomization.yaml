@@ -1,10 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: openshift-gitops
-
 bases:
-# Install RH GitOps
+# Install OpenShift GitOps
 - ../../base
-# Install and configure components via RH GitOps even RH GitOps
-- ../../../argoconfig
+# Install and configure components via OpenShift GitOps
+- ../../../argo-config
