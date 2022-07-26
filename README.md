@@ -2,11 +2,31 @@
 
 ## Quickstart
 
-To start the cluster provisioning, follow these steps:
+For repeatibility purposes before starting the cluster provisioning, assure that you have the keys and certificates necessary to decrypt the sealed secrets object stored in this repo in folder ./manifests/sealed-secrets/02-secrets/overlays/default. Once you get the original keys and certificates in a secret object. Secret object embedding original keys looks like this:
+
+```apiVersion: v1
+data:
+  tls.crt: "YOUR CERT GOES HERE"
+  tls.key: "YOUR KEY GOES HERE"
+kind: Secret
+metadata:
+  name: sealed-secrets-secret
+  namespace: sealed-secrets
+type: kubernetes.io/tls
+```
+
+Now copy them to the following path in the repo as indicated below:
+
+```console
+cp original_keys.yaml ./manifests/sealed-secrets/00-operator/overlays/default/01-sealed-secrets-secret.yaml
+```
+
+Now you are good to go and can start provisioning the cluster:
 
 ```console
 until oc apply -k bootstrap/overlays/default; do sleep 3; done
 ```
+
 This will first configure your cluster with the GitOps controller. The operator will drive the deployment of the other operators, jobs, and cluster customizations:
 
 	* OpenShift GitOps operator
