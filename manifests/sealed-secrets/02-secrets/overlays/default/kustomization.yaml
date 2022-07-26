@@ -2,7 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: sealed-secrets
-
+annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 resources:
 - 00-quay-sealed.yaml
 # add the rest of secrets
