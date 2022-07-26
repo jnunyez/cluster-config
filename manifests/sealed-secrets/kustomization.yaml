@@ -7,4 +7,4 @@ resources:
   # replace sealed secrets secret
   - ./01-bootstrap/overlays/default
   # provision reused sealed secrets
-  - ./02-secrets/overlays/default
+  #- ./02-secrets/overlays/default
