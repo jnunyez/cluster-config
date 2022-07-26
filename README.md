@@ -2,7 +2,7 @@
 
 ## Quickstart
 
-For repeatibility purposes before starting the cluster provisioning, assure that you have the keys and certificates necessary to decrypt the sealed secrets object stored in this repo in folder ./manifests/sealed-secrets/02-secrets/overlays/default. Once you get the original keys and certificates in a secret object. Secret object embedding original keys looks like this:
+For repeatibility and reusage purposes of sealed secrets object, before starting the cluster provisioning assure that you have the keys and certificates necessary to decrypt the sealed secrets object stored in this repo in folder `./manifests/sealed-secrets/02-secrets/overlays/`default. Once you get the original keys and certificates in a secret object, you can proceed to provision them in the same namespace where you plan to deploy the sealed secret operator. A secret object embedding original keys looks like this:
 
 ```apiVersion: v1
 data:
@@ -15,10 +15,10 @@ metadata:
 type: kubernetes.io/tls
 ```
 
-Now copy them to the following path in the repo as indicated below:
+Now provision the secret in advance in the namespace argoCD will deploy the operator:
 
 ```console
-cp original_keys.yaml ./manifests/sealed-secrets/00-operator/overlays/default/01-sealed-secrets-secret.yaml
+oc create -f 01-sealed-secrets-secret.yaml
 ```
 
 Now you are good to go and can start provisioning the cluster:
@@ -36,6 +36,7 @@ ArgoCD Applications in a determinate  order which is supported by SyncWave annot
 	* Patcher (sync-wave -3)
 	* GitOps (sync-wave -2)
 	* Local Storage Operator (sync-wave -1)
+	* Sealed Secrets (sync-wave -1)
 	* Volume discovery (sync-wave 0 IMPORTANT TO RUN AFTER Local Storage Operator)
 	* ODF operator (sync-wave 3 TO RUN After Volume discovery)
 	* Advanced Cluster Management operator  (sync-wave 4)

@@ -4,5 +4,7 @@ kind: Kustomization
 resources:
   # Install sealed secrets operator
   - ./00-operator/overlays/default
-  # Provision sealed secrets secret
+  # replace sealed secrets secret
   - ./01-bootstrap/overlays/default
+  # provision reused sealed secrets
+  - ./02-secrets/overlays/default
