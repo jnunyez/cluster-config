@@ -6,7 +6,6 @@ namespace: sealed-secrets
 resources:
 - 00-quay-sealed.yaml
 # add the rest of secrets
-#....
 
 # add the URL for which tekton will use this Secret
 #to be added when installing tekton operator
@@ -14,7 +13,7 @@ resources:
 #  - patch: |-
 #      - op: add
 #       path: "/metadata/annotations"
-#        value: 
+#        value:
 #          tekton.dev/docker-0: https://quay.io
 #    target:
 #      name: qcred
