@@ -9,3 +9,5 @@ resources:
   - gitops.yaml
   - patcher.yaml
   - pipelines.yaml
+  - sealer.yaml
+  - secrets.yaml
