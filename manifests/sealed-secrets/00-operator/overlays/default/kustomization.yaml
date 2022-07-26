@@ -8,3 +8,4 @@ bases:
 
 resources:
 - 00-namespace.yaml
+- 01-sealed-secrets-secret.yaml
