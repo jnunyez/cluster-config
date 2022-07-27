@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   name: qcred
   namespace: sealed-secrets
-  annotation:
+  annotations:
     tekton.dev/docker-0: https://quay.io
 spec:
   encryptedData:
