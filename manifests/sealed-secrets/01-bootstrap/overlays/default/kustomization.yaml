@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: sealed-secrets
 
 resources:
-- 00-postsync-replace-sealed-secrets-secret.yaml
+- 00-replace-sealed-secrets-secret.yaml
