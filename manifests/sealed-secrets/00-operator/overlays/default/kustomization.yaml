@@ -7,3 +7,12 @@ namespace: sealed-secrets
 
 bases:
 - github.com/redhat-cop/gitops-catalog/sealed-secrets-operator/overlays/default
+
+patchesJson6902:
+- target:
+    version: v1
+    group: apps
+    kind: Deployment
+    name: sealed-secrets-controller
+    namespace: sealed-secrets
+  path: tune-controller.yaml
