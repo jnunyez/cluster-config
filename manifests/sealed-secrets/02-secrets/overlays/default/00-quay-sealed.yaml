@@ -5,7 +5,9 @@ metadata:
   name: qcred
   namespace: sealed-secrets
   annotations:
-    argocd.argoproj.io/sync-wave: "5"
+    argocd.argoproj.io/hook: PostSync
+    #argocd.argoproj.io/sync-wave: "5"
+
     tekton.dev/docker-0: https://quay.io
 spec:
   encryptedData:
