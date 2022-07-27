@@ -3,20 +3,6 @@ kind: Kustomization
 
 namespace: sealed-secrets
 metadata:
-  annotations:
-    argocd.argoproj.io/hook: PostSync
-    argocd.argoproj.io/hook-delete-policy: HookSucceeded
 resources:
 - 00-quay-sealed.yaml
-# add the rest of secrets
-
-# add the URL for which tekton will use this Secret
-#to be added when installing tekton operator
-#patches:
-#  - patch: |-
-#      - op: add
-#       path: "/metadata/annotations"
-#        value:
-#          tekton.dev/docker-0: https://quay.io
-#    target:
-#      name: qcred
+# add here the rest of secrets
