@@ -7,5 +7,5 @@ resources:
   - 01-node-labels-job.yaml
   # Enable Local Volume Discovery
   - 02-lvd.yaml
-  # Local Volume Sets
+  # Local Volume Sets base
   - 03-lvs.yaml
