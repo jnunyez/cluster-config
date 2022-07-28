@@ -7,3 +7,8 @@ bases:
   - github.com/redhat-cop/gitops-catalog/elasticsearch-operator/overlays/stable?ref=main
   # Openshift Logging
   - github.com/redhat-cop/gitops-catalog/openshift-logging/operator/overlays/stable?ref=main
+
+resources:
+  - 00-set-logging.yaml
+  - 01-log-forwarder.yaml
+  #consolelink
