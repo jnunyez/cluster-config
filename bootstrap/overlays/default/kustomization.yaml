@@ -8,4 +8,4 @@ bases:
 - ../../../argo-config
 
 resources:
-- 00-gitops-instance.yaml  
+- 00-gitops-instance.yaml

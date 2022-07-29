@@ -1,0 +1,12 @@
+- op: replace
+  path: /spec/clusterInstallRef
+  value: 'volante-cars-lab-cluster'
+- op: replace
+  path: '/spec/platform/agentBareMetal/agentSelector/matchLabels/cluster-name'
+  value: 'volante-cars-lab'
+- op: replace
+  path: /spec/clusterName
+  value: 'volante'
+- op: replace
+  path: /spec/baseDomain
+  value: 'cars.lab'
