@@ -1,0 +1,12 @@
+---
+apiVersion: cluster.open-cluster-management.io/v1
+kind: ManagedCluster
+metadata:
+  name: patch-me
+  namespace: patch-me
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "4"
+spec:
+  hubAcceptsClient: true
+  leaseDurationSeconds: 60
