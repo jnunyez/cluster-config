@@ -6,3 +6,6 @@ bases:
 - ../../base
 # Install and configure components via OpenShift GitOps
 - ../../../argo-config
+
+resources:
+- 00-gitops-instance.yaml  
