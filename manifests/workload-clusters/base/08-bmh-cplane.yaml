@@ -1,0 +1,99 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-super1
+  namespace: patch-me
+data:
+  username: cm9vdA==
+  password: YWx0aW9zdGFyMTIz
+type: Opaque
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-super2
+  namespace: patch-me
+data:
+  username: cm9vdA==
+  password: YWx0aW9zdGFyMTIz
+type: Opaque
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: bmc-super3
+  namespace: patch-me
+data:
+  username: cm9vdA==
+  password: YWx0aW9zdGFyMTIz
+type: Opaque
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: super1
+  namespace: patch-me
+  labels:
+    infraenvs.agent-install.openshift.io: patch-me
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "super1"
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  online: true
+  bootMACAddress: patch-me
+  automatedCleaningMode: disabled
+  bmc:
+    address: 
+    credentialsName: bmc-super1-volante-cars-lab
+    disableCertificateVerification: True
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: super2
+  namespace: patch-me
+  labels:
+    infraenvs.agent-install.openshift.io: patch-me
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "super2"
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  online: true
+  bootMACAddress: patch-me
+  automatedCleaningMode: disabled
+  bmc:
+    address: patch-me
+    credentialsName: bmc-super2-volante-cars-lab
+    disableCertificateVerification: True
+---
+apiVersion: metal3.io/v1alpha1
+kind: BareMetalHost
+metadata:
+  name: super3
+  namespace: patch-me
+  labels:
+    infraenvs.agent-install.openshift.io: patch-me
+  annotations:
+    inspect.metal3.io: disabled
+    bmac.agent-install.openshift.io/hostname: "super3"
+    bmac.agent-install.openshift.io/role: master
+    bmac.agent-install.openshift.io/installer-args: '["--copy-network"]'
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "8"
+spec:
+  online: true
+  bootMACAddress: patch-me
+  automatedCleaningMode: disabled
+  bmc:
+    address: patch-me
+    credentialsName: bmc-super3-volante-cars-lab
+    disableCertificateVerification: True

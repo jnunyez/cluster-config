@@ -1,9 +1,9 @@
 - op: replace
   path: /spec/bootMACAddress
-  value: ''
+  value: 'DE:AD:BE:EF:A7:53'
 - op: replace
   path: /spec/bmc/address
-  value: redfish-virtualmedia+http://kvmhost2.remote-skylark-ldc1.cars.lab:8082/redfish/v1/Systems/03798b5b-994b-5088-89f3-30f7c6fb35e2
+  value: redfish-virtualmedia+http://kvmhost2.remote-skylark-ldc1.cars.lab:8082/redfish/v1/Systems/550e75a5-e224-5f1a-9a00-c132cea6f533
 - op: replace
   path: /spec/bmc/credentialsName
   value: volante-cars-lab-bmc-super3

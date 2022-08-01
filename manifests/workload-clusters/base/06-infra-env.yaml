@@ -4,6 +4,9 @@ kind: InfraEnv
 metadata:
   name: infraenv
   namespace: patch-me
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   additionalNTPSources:
     - a.lab

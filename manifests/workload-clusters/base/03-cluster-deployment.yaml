@@ -6,7 +6,7 @@ metadata:
   namespace: patch-me
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "3"
 spec:
   baseDomain: patch-me
   clusterName: patch-me

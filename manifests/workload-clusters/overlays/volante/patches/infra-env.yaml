@@ -3,9 +3,12 @@
   value: ['registry.cars.lab', 'fd00:6:6:11::52']
 - op: replace
   path: /spec/clusterRef/name
-  value: 'volante-cars-lab-cluster'
+  value: 'volante-cars-lab'
 - op: replace
   path: /spec/clusterRef/namespace
+  value: 'volante-cars-lab'
+- op: replace
+  path: /spec/agentLabelSelector/matchLabels/cluster-name
   value: 'volante-cars-lab'
 - op: replace
   path: '/spec/nmStateConfigLabelSelector/matchLabels/cluster-name'

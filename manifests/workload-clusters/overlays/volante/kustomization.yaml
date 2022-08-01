@@ -26,6 +26,25 @@ patches:
   - target:
       kind: ClusterDeployment
     path: ./patches/cluster-deployment.yaml
+  - target:
+      kind: KlusterletAddonConfig
+    path: ./patches/klusterlet-addon-config.yaml
+  - target:
+      kind: InfraEnv
+    path: ./patches/infra-env.yaml
+  - target:
+      kind: BareMetalHost
+      name: super1
+    path: ./patches/bmh-super1.yaml
+  - target:
+      kind: BareMetalHost
+      name: super2
+    path: ./patches/bmh-super2.yaml
+  - target:
+      kind: BareMetalHost
+      name: super3
+    path: ./patches/bmh-super3.yaml
 resources:
- # whole yaml is environment specific
- - 00-aci.yaml
+ # whole yaml is environment specific dont use patches
+ - 02-aci.yaml
+ - 07-nmstate.yaml
