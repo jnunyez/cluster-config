@@ -4,8 +4,8 @@ kind: Kustomization
 resources:
 - 00-namespace.yaml
 - 01-installer-secret-sealed.yaml
-- 02-cluster-deployment.yaml
-- 03-klusterlet-addon-config.yaml
-- 04-managed-cluster.yaml
-- 05-infra-env.yaml
-- 07-bmh-cplane.yaml
+- 03-cluster-deployment.yaml
+- 04-klusterlet-addon-config.yaml
+- 05-managed-cluster.yaml
+- 06-infra-env.yaml
+- 08-bmh-cplane.yaml
