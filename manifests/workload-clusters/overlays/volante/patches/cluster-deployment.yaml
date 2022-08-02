@@ -1,4 +1,7 @@
 - op: replace
+  path: /metadata/name
+  value: 'volante-cars-lab'
+- op: replace
   path: /spec/clusterInstallRef/name
   value: 'volante-cars-lab'
 - op: replace

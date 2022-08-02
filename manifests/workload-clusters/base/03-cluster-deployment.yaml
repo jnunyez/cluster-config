@@ -2,7 +2,7 @@
 apiVersion: hive.openshift.io/v1
 kind: ClusterDeployment
 metadata:
-  name: cluster-deployment
+  name: patch-me-with-cluster-name
   namespace: patch-me
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
