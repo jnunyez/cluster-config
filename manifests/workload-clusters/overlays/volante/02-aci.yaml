@@ -2,7 +2,7 @@
 apiVersion: extensions.hive.openshift.io/v1beta1
 kind: AgentClusterInstall
 metadata:
-  name: aci
+  name: volante-cars-lab
   namespace: patch-me
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
