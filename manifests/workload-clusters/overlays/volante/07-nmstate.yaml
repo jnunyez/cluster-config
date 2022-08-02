@@ -5,7 +5,7 @@ metadata:
   name: nmstate-super1
   namespace: volante-cars-lab
   labels:
-    cluster-name: volante-nmstate
+    cluster-name: volante-cars-lab
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "6"
