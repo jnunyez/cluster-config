@@ -49,7 +49,7 @@ spec:
   automatedCleaningMode: disabled
   bmc:
     address: 
-    credentialsName: bmc-super1-volante-cars-lab
+    credentialsName: bmc-super1
     disableCertificateVerification: True
 ---
 apiVersion: metal3.io/v1alpha1
@@ -72,7 +72,7 @@ spec:
   automatedCleaningMode: disabled
   bmc:
     address: patch-me
-    credentialsName: bmc-super2-volante-cars-lab
+    credentialsName: bmc-super2
     disableCertificateVerification: True
 ---
 apiVersion: metal3.io/v1alpha1
@@ -95,5 +95,5 @@ spec:
   automatedCleaningMode: disabled
   bmc:
     address: patch-me
-    credentialsName: bmc-super3-volante-cars-lab
+    credentialsName: bmc-super3
     disableCertificateVerification: True
