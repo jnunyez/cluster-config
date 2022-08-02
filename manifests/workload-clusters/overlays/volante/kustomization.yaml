@@ -3,7 +3,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 namespace: volante-cars-lab
-namePrefix: volante-cars-lab-
+#namePrefix: volante-cars-lab-
 
 bases:
   - ../../base
@@ -30,6 +30,12 @@ patches:
       kind: KlusterletAddonConfig
     path: ./patches/klusterlet-addon-config.yaml
   - target:
+      kind: ManagedCluster
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: 'volante-cars-lab'
+  - target:
       kind: InfraEnv
     path: ./patches/infra-env.yaml
   - target:
@@ -48,3 +54,5 @@ resources:
  # whole yaml is environment specific dont use patches
  - 02-aci.yaml
  - 07-nmstate.yaml
+configurations:
+- ./configs/prefix.yaml
