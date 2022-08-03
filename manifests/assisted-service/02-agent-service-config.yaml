@@ -1,0 +1,71 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: assisted-service-config
+  namespace: multicluster-engine
+  annotations:
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "2"
+data:
+  LOG_LEVEL: "debug"
+  SUPPORT_L2: "false"
+  DISABLED_HOST_VALIDATIONS: "belongs-to-machine-cidr,belongs-to-majority-group"
+  #PUBLIC_CONTAINER_REGISTRIES: "quay.io,registry.svc.ci.openshift.org,registry.redhat.io"
+  ISO_IMAGE_TYPE: "full-iso"
+  #ASSISTED_SERVICE_IMAGE: registry.redhat.io/rhacm2/agent-service-rhel8@sha256:2e3f3795de17f08c30dd81e90aeb86998a572b8953368b7f181d34a445a84eb2
+  #SERVICE_IMAGE: registry.redhat.io/rhacm2/agent-service-rhel8@sha256:2e3f3795de17f08c30dd81e90aeb86998a572b8953368b7f181d34a445a84eb2
+  #SELF_IMAGE: registry.redhat.io/rhacm2/agent-service-rhel8@sha256:2e3f3795de17f08c30dd81e90aeb86998a572b8953368b7f181d34a445a84eb2
+  #IMAGE_SERVICE_IMAGE: registry.redhat.io/rhacm2/assisted-image-service-rhel8@sha256:9768e9a73324561133f159ca6a2397e6a31de28abdc47be5b5fae444aeab20e3
+  #AGENT_DOCKER_IMAGE: registry.redhat.io/rhacm2/assisted-installer-agent-rhel8@sha256:f53598df253ef2762d1f0b74bd4bcb0735379d6b13fb88ecf8acac5946bcbc53
+  #CONTROLLER_IMAGE: registry.redhat.io/rhacm2/assisted-installer-reporter-rhel8@sha256:ee14648f60f46face43da4a7b26a1e7911fe0eae9a3b8ade5db476b22e085fca
+  #INSTALLER_IMAGE: registry.redhat.io/rhacm2/assisted-installer-rhel8@sha256:c809bb9d532788163391d7183fccda26b020270865f34cf652ffe4419c4ae6a6
+---
+apiVersion: agent-install.openshift.io/v1beta1
+kind: AgentServiceConfig
+metadata:
+  name: agent
+  annotations:
+    unsupported.agent-install.openshift.io/assisted-service-configmap: 'assisted-service-config'
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  databaseStorage:
+    #bug, leave default class for now
+    #storageClassName: lso-blockclass
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 48Gi
+  filesystemStorage:
+    #bug, leave default class for now
+    #storageClassName: lso-filesystemclass
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: 48Gi
+  #mirrorRegistryRef:
+    # for disconnected installs
+    #name: "disconnected-mirror-config"
+  osImages:
+    #- openshiftVersion: "4.6"
+    #  version: "46.82.202012051820-0"
+    #  url: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-4.6.8-x86_64-live.x86_64.iso"
+    #  rootFSUrl: "https://mirror.openshift.com/pub/openshift-v4/dependencies/rhcos/4.6/4.6.8/rhcos-live-rootfs.x86_64.img"
+    - openshiftVersion: "4.8"
+      cpuArchitecture: x86_64
+      version: "48.84.202107202156-0"
+      url: "http://10.40.0.100/ztp-dave/rhcos-4.8.14-x86_64-live.x86_64.iso"
+      rootFSUrl: "http://10.40.0.100/ztp-dave/rhcos-4.8.14-x86_64-live-rootfs.x86_64.img"
+    - openshiftVersion: "4.9"
+      cpuArchitecture: x86_64
+      version: "49.84.202110081407-0"
+      url: "http://10.40.0.100/ztp-dave/rhcos-4.9.40-x86_64-live.x86_64.iso"
+      rootFSUrl: "http://10.40.0.100/ztp-dave/rhcos-4.9.40-x86_64-live-rootfs.x86_64.img"
+    - openshiftVersion: "4.10"
+      cpuArchitecture: x86_64
+      version: "410.84.202201251210-0"
+      url: "http://10.40.0.100/ztp-dave/rhcos-4.10.16-x86_64-live.x86_64.iso"
+      rootFSUrl: "http://10.40.0.100/ztp-dave/rhcos-4.10.16-x86_64-live-rootfs.x86_64.img"
