@@ -6,5 +6,3 @@ bases:
   # Use GitOps to manage GitOps controller
   - ../../../bootstrap/overlays/default
 resources:
-  # make GitOps cluster admin
-  - 00-cluster-admin.yaml
