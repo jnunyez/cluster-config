@@ -9,3 +9,4 @@ bases:
 
 resources:
 - 00-gitops-instance.yaml
+- 01-cluster-admin.yaml

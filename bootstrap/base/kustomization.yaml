@@ -4,4 +4,4 @@ kind: Kustomization
 
 bases:
   # OpenShift GitOps
-  - github.com/redhat-cop/gitops-catalog/openshift-gitops-operator/overlays/stable?ref=main
+  - github.com/redhat-cop/gitops-catalog/openshift-gitops-operator/overlays/latest?ref=main
