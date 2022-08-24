@@ -50,7 +50,7 @@ metadata:
   name: nmstate-super2
   namespace: volante-cars-lab
   labels:
-    cluster-name: volante-nmstate
+    cluster-name: volante-cars-lab
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "6"
@@ -95,7 +95,7 @@ metadata:
   name: nmstate-super3
   namespace: volante-cars-lab
   labels:
-    cluster-name: volante-nmstate
+    cluster-name: volante-cars-lab
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
     argocd.argoproj.io/sync-wave: "6"
