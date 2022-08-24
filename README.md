@@ -21,28 +21,39 @@ Now provision the secret in advance in the namespace argoCD will deploy the oper
 oc create -f 01-sealed-secrets-secret.yaml
 ```
 
-Now you are good to go and can start provisioning the cluster:
+Now you are good to go and can start provisioning the cluster config of the hub cluster:
 
 ```console
 until oc apply -k bootstrap/overlays/default; do sleep 3; done
 ```
 
-This will first configure your cluster with the GitOps controller. The operator will drive the deployment of the other operators, jobs, and cluster customizations:
+The command above will first install the Openshift GitOps operator. This operator will drive the deployment of the other operators, jobs, and cluster customizations.
 
-	* OpenShift GitOps operator
+ArgoCD Applications in a determinate order which is supported by SyncWave annotations:
 
-ArgoCD Applications in a determinate  order which is supported by SyncWave annotations:
+	* Patcher operator
+	* GitOps operator
+	* Local Storage Operator 
+	* Sealed Secrets operator
+	* Volume discovery 
+	* ODF operator 
+	* Advanced Cluster Management operator  
+	* Advanced Cluster Management instance 
+	* Red Hat OpenShift pipelines 
 
-	* Patcher (sync-wave -3)
-	* GitOps (sync-wave -2)
-	* Local Storage Operator (sync-wave -1)
-	* Sealed Secrets (sync-wave -1)
-	* Volume discovery (sync-wave 0 IMPORTANT TO RUN AFTER Local Storage Operator)
-	* ODF operator (sync-wave 3 TO RUN After Volume discovery)
-	* Advanced Cluster Management operator  (sync-wave 4)
-	* Advanced Cluster Management instance (sync-wave 5)
-	* RH OpenShift pipelines (sync-wave 5)
+## Provision Workload Cluster
 
+Provision assisted service configuration: 
+
+```console
+oc create -f argo-config/assisted.yaml 
+```
+
+Provision workload cluster:
+
+```console
+oc create -f argo-config/volante.yaml
+```
 
 ## Dir Structure
 
@@ -50,7 +61,7 @@ ArgoCD Applications in a determinate  order which is supported by SyncWave annot
 
 * argo-config: Here we include all the argocd applications. 
 
-* manifests: This directory embeds all the YAML files to deploy via the respective ArgoCD application all the specifics customizations necessary to achieve the aimed functionality in the cluster. The core subdir contains specific cusotmizations for the GitOps controller that will be also managed by ArgoCD. Yes, ArgoCD lifecycle is managed by ArgoCD.  
+* manifests: This directory embeds all the YAML files to deploy via the respective ArgoCD application all the specifics customizations necessary to achieve the aimed functionality in the cluster. The core subdir contains specific customizations for the GitOps controller that will be also managed by ArgoCD. Yes, ArgoCD lifecycle is managed by ArgoCD.  
 
 ## Object management in the management cluster
 
@@ -62,7 +73,6 @@ OpenShift objects can be divided into two categories:
 
 * Objects owned by Red Hat Advanved Cluster Management that
 	* creates workload OpenShift clusters
-
 
 ## Object dependencies
 
