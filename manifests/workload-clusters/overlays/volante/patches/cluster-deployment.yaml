@@ -9,7 +9,7 @@
   value: 'volante-cars-lab'
 - op: replace
   path: /spec/clusterName
-  value: 'volante-cars-lab'
+  value: 'volante'
 - op: replace
   path: /spec/baseDomain
   value: 'cars.lab'
