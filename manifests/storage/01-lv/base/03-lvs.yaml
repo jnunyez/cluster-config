@@ -4,7 +4,7 @@ metadata:
   name: local-block
   namespace: openshift-local-storage
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "4"
 spec:
   nodeSelector:
     nodeSelectorTerms:

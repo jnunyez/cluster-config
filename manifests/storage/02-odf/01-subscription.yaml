@@ -4,7 +4,7 @@ metadata:
   name: odf-operator
   namespace: openshift-storage
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   channel: "stable-4.10"
   installPlanApproval: Automatic
@@ -18,7 +18,7 @@ metadata:
   name: openshift-storage-operatorgroup
   namespace: openshift-storage
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "6"
 spec:
   targetNamespaces:
   - openshift-storage
