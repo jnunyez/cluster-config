@@ -17,4 +17,10 @@ spec:
     automated:
       prune: false
       selfHeal: true
+  
+  ignoreDifferences:
+  - group: agent-install.openshift.io
+    kind: InfraEnv
+    jsonPointers:
+    - /spec/agentLabelSelector
 ---
