@@ -4,8 +4,8 @@ kind: Kustomization
 bases:
 # Install OpenShift GitOps
 - ../../base
-# Install and configure components via OpenShift GitOps
-- ../../../argo-config
+# Install and configure applicationsets via OpenShift GitOps
+- ../../../argo-appset
 
 resources:
 - 00-gitops-instance.yaml
