@@ -9,7 +9,7 @@ spec:
       repoURL: https://github.com/jnunyez/cluster-config
       revision: main
       directories:
-      - path: manifests/*
+      - path: manifests/hub-cluster/*
   template:
     metadata:
       name: '{{path.basename}}'
