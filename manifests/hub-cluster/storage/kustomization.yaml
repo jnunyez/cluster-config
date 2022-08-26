@@ -5,6 +5,6 @@ resources:
   # Set up OpenShift Local Storage Operator
   - ./00-lso
   # add labels
-  - ./01-lv
+  - ./01-lv/overlays/default
   # Set Up OpenShift Data Fabric
   - ./02-odf
