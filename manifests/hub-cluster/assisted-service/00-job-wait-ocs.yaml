@@ -30,13 +30,13 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: cli-job-sa
-    namespace: openshift-local-storage
+    namespace: openshift-storage
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: cli-job-sa
-  namespace: openshift-local-storage
+  namespace: openshift-storage
   annotations: 
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "1"
