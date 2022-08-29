@@ -6,7 +6,7 @@ metadata:
   namespace: multicluster-engine
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "11"
 data:
   LOG_LEVEL: "debug"
   SUPPORT_L2: "false"
@@ -28,7 +28,7 @@ metadata:
   annotations:
     unsupported.agent-install.openshift.io/assisted-service-configmap: 'assisted-service-config'
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "2"
+    argocd.argoproj.io/sync-wave: "12"
 spec:
   databaseStorage:
     #bug, leave default class for now
