@@ -8,5 +8,3 @@ resources:
   - ./01-lv/overlays/default
   # Set Up OpenShift Data Fabric
   - ./02-odf
-  # assisted service
-  - ./03-assisted-service
