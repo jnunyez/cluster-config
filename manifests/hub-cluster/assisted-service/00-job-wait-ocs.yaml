@@ -1,10 +1,54 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/hook: PreSync
+    rbac.authorization.kubernetes.io/autoupdate: "true"
+  name: storage-cli-job-sa-role
+rules:
+  - apiGroups:
+    - "*"
+    resources: ["nodes", "storageclasses"]
+    verbs:
+    - list
+    - get
+    - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: storage-cli-gitops-rolebinding
+  annotations: 
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "1"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: storage-cli-job-sa-role
+subjects:
+  - kind: ServiceAccount
+    name: cli-job-sa
+    namespace: openshift-local-storage
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cli-job-sa
+  namespace: openshift-local-storage
+  annotations: 
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "1"
+
 apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "2"
     argocd.argoproj.io/hook-delete-policy: HookSucceeded
-  name:
+  name: wait-ocs
   namespace: openshift-gitops
 spec:
   template:
