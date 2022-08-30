@@ -40,7 +40,7 @@ spec:
         storage: 48Gi
   filesystemStorage:
     #bug, leave default class for now
-    storageClassName: oc-storagecluster-ceph-rbd
+    storageClassName: ocs-storagecluster-ceph-rbd
     accessModes:
     - ReadWriteOnce
     resources:
