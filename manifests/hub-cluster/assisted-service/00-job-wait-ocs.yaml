@@ -1,3 +1,12 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    argocd.argoproj.io/hook: PreSync
+  name: openshift-storage
+  labels:
+    name: openshift-storage
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -20,7 +29,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: odf-cli-gitops-rolebinding
-  annotations: 
+  annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "1"
 roleRef:
@@ -37,7 +46,7 @@ kind: ServiceAccount
 metadata:
   name: cli-odf-sa
   namespace: openshift-storage
-  annotations: 
+  annotations:
     argocd.argoproj.io/hook: PreSync
     argocd.argoproj.io/sync-wave: "1"
 ---
@@ -66,7 +75,7 @@ spec:
                 oc get storagecluster ocs-storagecluster -n openshift-storage | grep Ready > /dev/null
                 RTN=$?
                 if [ $RTN -ne 0]; then
-                  echo -n "." 
+                  echo -n "."
                   sleep $SLEEP
                 fi
               done
