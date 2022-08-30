@@ -32,7 +32,7 @@ metadata:
 spec:
   databaseStorage:
     #bug, leave default class for now
-    #storageClassName: lso-blockclass
+    storageClassName: ocs-storagecluster-ceph-rbd
     accessModes:
     - ReadWriteOnce
     resources:
@@ -40,7 +40,7 @@ spec:
         storage: 48Gi
   filesystemStorage:
     #bug, leave default class for now
-    #storageClassName: lso-filesystemclass
+    storageClassName: oc-storagecluster-ceph-rbd
     accessModes:
     - ReadWriteOnce
     resources:
