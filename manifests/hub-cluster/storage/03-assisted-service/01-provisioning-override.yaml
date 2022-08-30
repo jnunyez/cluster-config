@@ -5,6 +5,6 @@ metadata:
   name: provisioning-configuration
   annotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "11"
 spec:
   watchAllNamespaces: true
