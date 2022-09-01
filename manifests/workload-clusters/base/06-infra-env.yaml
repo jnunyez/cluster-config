@@ -15,11 +15,12 @@ spec:
     name: patch-me
     namespace: patch-me
   sshAuthorizedKey: patch-me
-  agentLabelSelector:
-    matchLabels:
-      cluster-name: patch-me
+  #agentLabelSelector:
+  #  matchLabels:
+  #    cluster-name: patch-me
   pullSecretRef:
-    name: assisted-deployment-pull-secret
+    name: patch-me
+  # Customized network configuration
   nmStateConfigLabelSelector:
     matchLabels:
       cluster-name: patch-me
