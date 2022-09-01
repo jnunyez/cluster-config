@@ -102,7 +102,7 @@ spec:
       kinds:
       - TaskRun
       - PipelineRun
-      - ManagedClusterInfo
+      #- ManagedClusterInfo
   resourceCustomizations: |
     ocs.openshift.io/StorageCluster:
       health.lua: |
