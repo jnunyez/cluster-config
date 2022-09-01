@@ -96,7 +96,7 @@ spec:
   resourceExclusions: |
     - apiGroups:
       - tekton.dev
-      - internal.open-cluster-management.io
+      #- internal.open-cluster-management.io
       clusters:
       - '*'
       kinds:
