@@ -54,3 +54,4 @@ resources:
  # whole yaml is environment specific dont use patches
  - 02-aci.yaml
  - 07-nmstate.yaml
+ - 09-mci.yaml
