@@ -51,7 +51,7 @@ patches:
       name: super3
     path: ./patches/bmh-super3.yaml
 resources:
- # whole yaml is environment specific dont use patches
+ # whole 02-aci.yaml is environment specific dont use patches
  - 02-aci.yaml
  - 07-nmstate.yaml
  - 09-mci.yaml
