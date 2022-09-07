@@ -3,6 +3,8 @@ kind: ApplicationSet
 metadata:
   name: workload-clusters
   namespace: openshift-gitops
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.googlechat: spaceName
 spec:
   generators:
   - git:
