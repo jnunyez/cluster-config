@@ -48,6 +48,8 @@ spec:
         cpu: 250m
         memory: 128Mi
   initialSSHKnownHosts: {}
+  notifications:
+    enabled: true
   prometheus:
     enabled: false
     ingress:
@@ -92,17 +94,15 @@ spec:
     route:
       enabled: true
   tls:
-    ca: {}      
+    ca: {}
   resourceExclusions: |
     - apiGroups:
       - tekton.dev
-      #- internal.open-cluster-management.io
       clusters:
       - '*'
       kinds:
       - TaskRun
       - PipelineRun
-      #- ManagedClusterInfo
   resourceCustomizations: |
     ocs.openshift.io/StorageCluster:
       health.lua: |
@@ -135,11 +135,11 @@ spec:
           end
         end
         return hs
-    internal.open-cluster-management.io/ManagedClusterInfo: 
+    internal.open-cluster-management.io/ManagedClusterInfo:
       health.lua: |
           hs = {}
-          if obj.status ~= nil and obj.status.conditions ~= nil then  
-            for i, condition in ipairs(obj.status.conditions) do  
+          if obj.status ~= nil and obj.status.conditions ~= nil then
+            for i, condition in ipairs(obj.status.conditions) do
               if condition.status == "True" and condition.reason == "ManagedClusterInfoSynced" then
                 hs.status = "Healthy"
                 hs.message = "Managed cluster is added to hub cluster"
