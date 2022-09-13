@@ -534,19 +534,9 @@ data:
       when: app.status.operationState.phase in ['Succeeded']
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2022-09-07T13:46:34Z"
   labels:
     app.kubernetes.io/managed-by: openshift-gitops
     app.kubernetes.io/name: argocd-notifications-cm
     app.kubernetes.io/part-of: argocd
   name: argocd-notifications-cm
   namespace: openshift-gitops
-  ownerReferences:
-  - apiVersion: argoproj.io/v1alpha1
-    blockOwnerDeletion: true
-    controller: true
-    kind: ArgoCD
-    name: openshift-gitops
-    uid: 5e8ef62d-7648-4102-ad9a-39b5259988fb
-  resourceVersion: "37372986"
-  uid: 7636518d-65b6-467a-b265-674ce1cbbcf6
