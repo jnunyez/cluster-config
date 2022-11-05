@@ -3,7 +3,6 @@ kind: Kustomization
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
-namespace: sealed-secrets
 
 bases:
 - github.com/redhat-cop/gitops-catalog/sealed-secrets-operator/overlays/default
@@ -16,6 +15,3 @@ patchesJson6902:
     name: sealed-secrets-controller
     namespace: sealed-secrets
   path: tune-controller.yaml
-
-resources:
-  - 00-namespace.yaml
