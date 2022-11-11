@@ -8,3 +8,5 @@ metadata:
     argocd.argoproj.io/sync-wave: "11"
 spec:
   watchAllNamespaces: true
+  provisioningNetwork: Disabled
+  disableVirtualMediaTLS: True
